@@ -13,14 +13,14 @@ import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
-import InboxIcon from "@material-ui/icons/MoveToInbox";
-import DraftsIcon from "@material-ui/icons/Drafts";
-import SendIcon from "@material-ui/icons/Send";
 import { withStyles } from "@material-ui/core/styles";
 import Link from '@material-ui/core/Link';
 import { Paper } from '@material-ui/core';
 import Logo from '../img/logo.png';
 import { isMobile } from 'react-device-detect'
+import BusinessIcon from '@material-ui/icons/Business';
+import VpnKeyIcon from '@material-ui/icons/VpnKey';
+import PermContactCalendarIcon from '@material-ui/icons/PermContactCalendar';
 
 const themeGuestbar = createTheme({
     palette: {
@@ -55,7 +55,6 @@ const useStyles = makeStyles({
     },
     rootMenu: {
         marginTop: 12,
-        color: '#ffffff',
     },
     rootlogo: {
         margin: "3px",
@@ -66,8 +65,9 @@ const useStyles = makeStyles({
 const StyledMenu = withStyles({
     paper: {
         border: "1px solid #d3d4d5",
-        background: "#ffffff",
-        borderRadius: 30,
+        background: "#000000",
+        color: "#ffffff",
+        borderRadius: 10,
     }
 })((props) => (
     <Menu
@@ -124,7 +124,7 @@ export const HeaderGuest = () => {
     return (
         <ThemeProvider theme={themeGuestbar}>
             <Box sx={{ flexGrow: 1 }}>
-                <AppBar style={{position: 'fixed'}}>
+                <AppBar style={{ position: 'fixed' }}>
                     <Toolbar>
                         <Grid container direction="row" justifyContent="space-between" alignItems="center">
                             <Grid item>
@@ -138,7 +138,7 @@ export const HeaderGuest = () => {
                                 </Paper>
                             </Grid>
 
-                            <Grid item style={{visibility: (isMobile) ? "hidden":"visible"}}>
+                            <Grid item style={{ visibility: (isMobile) ? "hidden" : "visible" }}>
                                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                                     <Link href="#" onClick={preventDefault} className={classes2.link}>
                                         BlockVest for Investors
@@ -150,37 +150,33 @@ export const HeaderGuest = () => {
                             </Grid>
 
                             <Grid item>
-                                <div className='classes.root'>
+                                <div>
                                     <Button className={classes.root} style={{ background: themeGuestbar.palette.secondary.light, color: themeGuestbar.palette.primary.light }} startIcon={<AccountCircleIcon />} endIcon={<LockOpenIcon />}
-                                        aria-controls="customized-menu"
-                                        aria-haspopup="true"
                                         variant="contained"
-                                        onClick={handleClick}
-                                        elevation={100} > </Button>
-                                    <div style={{ backgroundColor: 'red' }}>
+                                        onClick={handleClick}></Button>
+                                    <div>
                                         <StyledMenu
-                                            id="customized-menu"
                                             className={classes.rootMenu}
                                             anchorEl={anchorEl}
                                             open={Boolean(anchorEl)}
                                             onClose={handleClose}>
                                             <StyledMenuItem >
                                                 <ListItemIcon>
-                                                    <SendIcon fontSize="small" />
+                                                    <BusinessIcon color='secondary' />
                                                 </ListItemIcon>
-                                                <ListItemText primary="Sent mail" />
+                                                <ListItemText primary="Sign Up" />
                                             </StyledMenuItem>
                                             <StyledMenuItem>
                                                 <ListItemIcon>
-                                                    <DraftsIcon fontSize="small" />
+                                                    <VpnKeyIcon color='secondary' />
                                                 </ListItemIcon>
-                                                <ListItemText primary="Drafts" />
+                                                <ListItemText primary="Login" />
                                             </StyledMenuItem>
                                             <StyledMenuItem>
                                                 <ListItemIcon>
-                                                    <InboxIcon fontSize="small" />
+                                                    <PermContactCalendarIcon color='secondary'/>
                                                 </ListItemIcon>
-                                                <ListItemText primary="Inbox" />
+                                                <ListItemText primary="Contact Us" />
                                             </StyledMenuItem>
                                         </StyledMenu>
                                     </div>

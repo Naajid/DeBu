@@ -54,7 +54,7 @@ const useStyles = makeStyles({
   root: {
     margin: "auto",
     borderRadius: 16,
-    position: "sticky"
+    position: "relative"
   },
   rootMenu: {
     marginTop: 12,
