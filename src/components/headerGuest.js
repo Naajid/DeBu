@@ -20,6 +20,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Link from '@material-ui/core/Link';
 import { Paper } from '@material-ui/core';
 import Logo from '../img/logo.png';
+import { isMobile } from 'react-device-detect'
 
 const themeGuestbar = createTheme({
     palette: {
@@ -137,7 +138,7 @@ export const HeaderGuest = () => {
                                 </Paper>
                             </Grid>
 
-                            <Grid item>
+                            <Grid item style={{visibility: (isMobile) ? "hidden":"visible"}}>
                                 <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                                     <Link href="#" onClick={preventDefault} className={classes2.link}>
                                         BlockVest for Investors

@@ -84,7 +84,7 @@ export const BodyGuest3 = React.memo(function SolidGameCard() {
   const styles4 = useStyles({ color: '#34241e' });
   return (
     <>
-      <Grid classes={gridStyles} container spacing={10} wrap='nowrap' >
+      <Grid classes={gridStyles} container spacing={10} >
         <Grid item>
           <CustomCard
             classes={styles}
