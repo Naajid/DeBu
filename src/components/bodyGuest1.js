@@ -37,7 +37,7 @@ const styles = {
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',
     width: '100vw',
-    height: '100vh'
+    height: '100vh',
   }
 };
 
@@ -54,7 +54,7 @@ const useStyles = makeStyles({
   root: {
     margin: "auto",
     borderRadius: 16,
-    position: "relative"
+    position: "sticky"
   },
   rootMenu: {
     marginTop: 12,

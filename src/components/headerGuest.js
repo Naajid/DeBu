@@ -51,7 +51,9 @@ const themeGuestbar = createTheme({
 const useStyles = makeStyles({
     root: {
         margin: 5,
-        borderRadius: 16
+        borderRadius: 16,
+        background: themeGuestbar.palette.secondary.light, 
+        color: themeGuestbar.palette.primary.light
     },
     rootMenu: {
         marginTop: 12,
@@ -59,15 +61,23 @@ const useStyles = makeStyles({
     rootlogo: {
         margin: "3px",
         padding: "3px",
-    }
+    },
+    dropdown: {
+        '&:hover': {
+            backgroundColor: '#ffffff',
+            color: '#000000',
+        }
+    }    
+
 });
 
 const StyledMenu = withStyles({
     paper: {
-        border: "1px solid #d3d4d5",
+        border: "0.1px solid #ffffff",
         background: "#000000",
         color: "#ffffff",
         borderRadius: 10,
+        elevation: 5
     }
 })((props) => (
     <Menu
@@ -85,15 +95,6 @@ const StyledMenu = withStyles({
     />
 ));
 
-const StyledMenuItem = withStyles((theme) => ({
-    root: {
-        "&:focus": {
-            "& .MuiListItemIcon-root, & .MuiListItemText-primary": {
-                color: theme.palette.common.white
-            }
-        }
-    }
-}))(MenuItem);
 
 export const useStyles2 = makeStyles((theme) => ({
     link: {
@@ -129,8 +130,6 @@ export const HeaderGuest = () => {
                         <Grid container direction="row" justifyContent="space-between" alignItems="center">
                             <Grid item>
                                 <Paper variant='elevation'>
-
-
                                     <Typography variant="h6" className={classes.rootlogo} component="div" sx={{ flexGrow: 1 }}>
                                         <img src={Logo} alt="BlockVest Inc. logo" height={32} />
                                         BlockVest
@@ -151,7 +150,7 @@ export const HeaderGuest = () => {
 
                             <Grid item>
                                 <div>
-                                    <Button className={classes.root} style={{ background: themeGuestbar.palette.secondary.light, color: themeGuestbar.palette.primary.light }} startIcon={<AccountCircleIcon />} endIcon={<LockOpenIcon />}
+                                    <Button className={classes.root} startIcon={<AccountCircleIcon />} endIcon={<LockOpenIcon />}
                                         variant="contained"
                                         onClick={handleClick}></Button>
                                     <div>
@@ -160,24 +159,24 @@ export const HeaderGuest = () => {
                                             anchorEl={anchorEl}
                                             open={Boolean(anchorEl)}
                                             onClose={handleClose}>
-                                            <StyledMenuItem >
+                                            <MenuItem className={classes.dropdown}>
                                                 <ListItemIcon>
-                                                    <BusinessIcon color='secondary' />
+                                                    <BusinessIcon className={classes.dropdown} color='secondary' />
                                                 </ListItemIcon>
                                                 <ListItemText primary="Sign Up" />
-                                            </StyledMenuItem>
-                                            <StyledMenuItem>
+                                            </MenuItem>
+                                            <MenuItem className={classes.dropdown}>
                                                 <ListItemIcon>
-                                                    <VpnKeyIcon color='secondary' />
+                                                    <VpnKeyIcon className={classes.dropdown} color='secondary' />
                                                 </ListItemIcon>
                                                 <ListItemText primary="Login" />
-                                            </StyledMenuItem>
-                                            <StyledMenuItem>
+                                            </MenuItem>
+                                            <MenuItem className={classes.dropdown}>
                                                 <ListItemIcon>
-                                                    <PermContactCalendarIcon color='secondary'/>
+                                                    <PermContactCalendarIcon className={classes.dropdown} color='secondary'/>
                                                 </ListItemIcon>
                                                 <ListItemText primary="Contact Us" />
-                                            </StyledMenuItem>
+                                            </MenuItem>
                                         </StyledMenu>
                                     </div>
                                 </div>

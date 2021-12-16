@@ -22,10 +22,10 @@ export default function Footer() {
     const classes = useStyles();
     return (
         <div className={classes.root}>
-            <AppBar position="static" color='#000000'>
+            <AppBar position="static" style={{backgroundColor: "#ffffff"}}>
                 <Container maxWidth="md">
                     <Toolbar>
-                        <Typography variant="body1">
+                        <Typography variant="body1" color='primary'>
                             &copy; 2019 Gistia
                         </Typography>
                     </Toolbar>
