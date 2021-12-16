@@ -128,4 +128,4 @@ export const BodyGuest3 = React.memo(function SolidGameCard() {
     </>
   );
 });
-export default BodyGuest3
+export default BodyGuest3;

@@ -17,7 +17,8 @@ const useStyles = makeStyles(() => ({
     height: "80vh",
     width: "43vw",
     backgroundColor: "#181a1b",
-    color: "white"
+    color: "white",
+    overflow: "hidden"
   },
   media: {
     borderRadius: 6,
@@ -30,7 +31,7 @@ export const BodyGuest2 = React.memo(function MusicCard() {
   const textCardContentStyles = useN04TextInfoContentStyles();
   const shadowStyles = useOverShadowStyles({ inactive: true });
   return (
-    <>
+    <div style={{overflow: "hidden !important"}}>
     <Typography variant="h4" style={{ color: '#ffffff', marginLeft:'5vw' }} component="div" sx={{ flexGrow: 1 }}>
                                         Some Dummy Text
     </Typography>
@@ -77,7 +78,7 @@ export const BodyGuest2 = React.memo(function MusicCard() {
       </Card>
       </Grid>
     </Grid>
-    </>
+    </div>
   );
 });
 export default BodyGuest2

@@ -52,8 +52,9 @@ const styledtext = {
 
 const useStyles = makeStyles({
   root: {
-    margin: 15,
-    borderRadius: 16
+    margin: "auto",
+    borderRadius: 16,
+    position: "sticky"
   },
   rootMenu: {
     marginTop: 12,
@@ -72,7 +73,7 @@ export const BodyGuest1 = () => {
       <Paper style={styles.paperContainer}>
 
         <Typography style={styledtext}>
-          We do something, we do nothing, xyz invest with us okay?
+          {/* We do something, we do nothing, xyz invest with us okay? */}
         </Typography>
         <Button className={classes.root} style={{
           background: themeGuestbar.palette.secondary.light, color: themeGuestbar.palette.primary.light, textAlign: 'center', top: "40%",

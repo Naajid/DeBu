@@ -11,7 +11,8 @@ const useStyles = makeStyles(
         {
             backgroundColor: "#000000",
             color: "#ffffff",
-            marginTop: "95vh"
+            marginTop: "95vh",
+            width: "100vw"
         }
     }
 )
