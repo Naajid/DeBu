@@ -76,8 +76,8 @@ export const BodyGuest1 = () => {
           {/* We do something, we do nothing, xyz invest with us okay? */}
         </Typography>
         <Button className={classes.root} style={{
-          background: themeGuestbar.palette.secondary.light, color: themeGuestbar.palette.primary.light, textAlign: 'center', top: "40%",
-          left: "50%",   transform: 'translate(-50%, -50%)'
+          background: themeGuestbar.palette.secondary.light, color: themeGuestbar.palette.primary.light, textAlign: 'center', top: "40vh",
+          left: "50vw",   transform: 'translate(-50%, -50%)'
 
         }}
           variant="contained"

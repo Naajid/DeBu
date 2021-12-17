@@ -21,6 +21,12 @@ import { isMobile } from 'react-device-detect'
 import BusinessIcon from '@material-ui/icons/Business';
 import VpnKeyIcon from '@material-ui/icons/VpnKey';
 import PermContactCalendarIcon from '@material-ui/icons/PermContactCalendar';
+import Dialog from '@material-ui/core/Dialog';
+import Divider from '@material-ui/core/Divider';
+import IconButton from '@material-ui/core/IconButton';
+import CloseIcon from '@material-ui/icons/Close';
+import Slide from '@material-ui/core/Slide';
+
 
 const themeGuestbar = createTheme({
     palette: {
@@ -52,7 +58,7 @@ const useStyles = makeStyles({
     root: {
         margin: 5,
         borderRadius: 16,
-        background: themeGuestbar.palette.secondary.light, 
+        background: themeGuestbar.palette.secondary.light,
         color: themeGuestbar.palette.primary.light
     },
     rootMenu: {
@@ -67,7 +73,7 @@ const useStyles = makeStyles({
             backgroundColor: '#ffffff',
             color: '#000000',
         }
-    }    
+    }
 
 });
 
@@ -107,6 +113,11 @@ export const useStyles2 = makeStyles((theme) => ({
     }
 }));
 
+const Transition = React.forwardRef(function Transition(props, ref) {
+    return <Slide direction="up" ref={ref} {...props} />;
+  });
+  
+
 
 
 export const HeaderGuest = () => {
@@ -121,6 +132,16 @@ export const HeaderGuest = () => {
     const handleClose = () => {
         setAnchorEl(null);
     };
+    const [open, setOpen] = React.useState(false);
+
+    const handleOpenPop = () => {
+        setOpen(true);
+    };
+
+    const handleClosePop = () => {
+        setOpen(false);
+    };
+
     const preventDefault = (event) => event.preventDefault();
     return (
         <ThemeProvider theme={themeGuestbar}>
@@ -159,12 +180,35 @@ export const HeaderGuest = () => {
                                             anchorEl={anchorEl}
                                             open={Boolean(anchorEl)}
                                             onClose={handleClose}>
-                                            <MenuItem className={classes.dropdown}>
+                                            <MenuItem onClick={handleOpenPop} className={classes.dropdown}>
                                                 <ListItemIcon>
                                                     <BusinessIcon className={classes.dropdown} color='secondary' />
                                                 </ListItemIcon>
                                                 <ListItemText primary="Sign Up" />
                                             </MenuItem>
+                                            <Dialog
+                                                    fullScreen
+                                                    open={open}
+                                                    onClose={handleClose}
+                                                    TransitionComponent={Transition}
+                                                >
+                                                    <AppBar sx={{ position: 'relative' }}>
+                                                        <Toolbar>
+                                                            <IconButton
+                                                                edge="start"
+                                                                color="inherit"
+                                                                onClick={handleClosePop}
+                                                                aria-label="close"
+                                                            >
+                                                                <CloseIcon />
+                                                            </IconButton>
+                                                            <Typography style={{ flexGrow: 1, textAlign: "center"}} variant="h6">
+                                                                Login
+                                                            </Typography>
+                                                        </Toolbar>
+                                                    </AppBar>
+                                                        <Divider />
+                                                </Dialog>
                                             <MenuItem className={classes.dropdown}>
                                                 <ListItemIcon>
                                                     <VpnKeyIcon className={classes.dropdown} color='secondary' />
@@ -173,7 +217,7 @@ export const HeaderGuest = () => {
                                             </MenuItem>
                                             <MenuItem className={classes.dropdown}>
                                                 <ListItemIcon>
-                                                    <PermContactCalendarIcon className={classes.dropdown} color='secondary'/>
+                                                    <PermContactCalendarIcon className={classes.dropdown} color='secondary' />
                                                 </ListItemIcon>
                                                 <ListItemText primary="Contact Us" />
                                             </MenuItem>

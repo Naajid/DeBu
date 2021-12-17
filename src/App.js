@@ -7,6 +7,7 @@ import { BodyGuest1 } from './components/bodyGuest1';
 import { BodyGuest2 } from './components/bodyGuest2';
 import BodyGuest3 from './components/bodyGuest3';
 import Footer  from './components/footer';
+import { Divider } from '@material-ui/core';
 
 const theme = createTheme({
   palette: {
@@ -33,6 +34,7 @@ function App() {
       <BodyGuest1 />
       <BodyGuest2/>
       <BodyGuest3/>
+      <Divider style={{background: "#ffffff", marginTop: "5%"}} />
       <Footer style={styledfooter} />
     </ThemeProvider>
   );

@@ -18,7 +18,7 @@ const useStyles = makeStyles(() => ({
     width: "43vw",
     backgroundColor: "#181a1b",
     color: "white",
-    overflow: "hidden"
+    overflow: "hidden",
   },
   media: {
     borderRadius: 6,
